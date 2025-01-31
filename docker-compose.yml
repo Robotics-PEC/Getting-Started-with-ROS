@@ -1,0 +1,27 @@
+services:
+  ros:
+    environment:
+      - HOST_UID=1000
+      - HOST_GID=1000
+      - DISPLAY=host.docker.internal:0 #If using X server on windows
+      - RUN_VNC=false
+      - RUN_ZETH=true
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "50m"
+    build:
+      dockerfile: Dockerfile
+    tty: true
+    ipc: host
+    stdin_open: true
+    privileged: true
+    hostname: jazzer
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+    volumes:
+      - ./workspace:/home/jazzer/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - $HOME/.gnupg:/home/jazzer/.gnupg
+      - $HOME/.ssh:/home/jazzer/.ssh
+      - $HOME/.gitconfig:/home/jazzer/.gitconfig
