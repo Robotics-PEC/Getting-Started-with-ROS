@@ -12,6 +12,8 @@ services:
             max-size: "50m"
     build:
       dockerfile: Dockerfile
+    entrypoint: ["/entrypoint.sh"]
+    command: ["/bin/bash"]
     tty: true
     ipc: host
     stdin_open: true

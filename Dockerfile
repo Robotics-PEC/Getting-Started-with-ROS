@@ -19,5 +19,6 @@ USER jazzer
 # Set the working directory for the new user
 WORKDIR /home/jazzer/workspace
 
-# Set the entrypoint to the entrypoint script
-ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+# Set the entry point to the script
+CMD ["/bin/bash"]
+ENTRYPOINT ["/entrypoint.sh"]

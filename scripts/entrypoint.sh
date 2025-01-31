@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Source the ROS setup script
-source /opt/ros/jazzy/setup.bash
-
-# Add the ROS setup script to .bashrc for future sessions
-echo "source /opt/ros/jazzy/setup.bash" >>~/.bashrc
-echo "source /opt/ros/jazzy/setup.bash" >>~/.bashrc
+# Check if the ROS setup script is already in .bashrc
+if ! grep -Fxq "source /opt/ros/jazzy/setup.bash" ~/.bashrc; then
+    echo "source /opt/ros/jazzy/setup.bash" >>~/.bashrc
+fi
 
 # Execute the passed command
 exec "$@"
