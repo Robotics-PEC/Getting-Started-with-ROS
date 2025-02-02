@@ -89,15 +89,15 @@ The keystroke talker node allows you to send keystrokes as messages. To run the 
 
 1.  **Run the keystroke talker node in `C++`:**
 
-        ```sh
-        ros2 run talker_listner_cpp keyboard_talker_char
-        ```
+     ```sh
+     ros2 run talker_listner_cpp keyboard_talker_char
+     ```
 
 2.  **Run the keystroke talker node in `python`:**
 
-        ```sh
-        ros2 run talker_listner_py keyboard_talker_char
-        ```
+     ```sh
+     ros2 run talker_listner_py keyboard_talker_char
+     ```
 
 This node will publish keystrokes to a topic, which can be subscribed to by other nodes.
 This will help you understand how ROS2 nodes written in different languages can communicate with each other.
