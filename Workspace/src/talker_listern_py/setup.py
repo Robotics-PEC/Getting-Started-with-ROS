@@ -22,6 +22,7 @@ setup(
         'console_scripts': [
             'talker = talker_listern_py.talker:main',
             'listener = talker_listern_py.listener:main',
+            'keyboard_talker_char = talker_listern_py.keyboard_talker_char:main',
         ],
     },
 )

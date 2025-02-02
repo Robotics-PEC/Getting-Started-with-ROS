@@ -19,9 +19,13 @@ ament_target_dependencies(talker rclcpp std_msgs)
 add_executable(listener listener.cpp)
 ament_target_dependencies(listener rclcpp std_msgs)
 
+add_executable(keyboard_talker_char keyboard_talker_char.cpp)
+ament_target_dependencies(keyboard_talker_char rclcpp std_msgs)
+
 install(TARGETS
   talker
   listener
+  keyboard_talker_char
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
