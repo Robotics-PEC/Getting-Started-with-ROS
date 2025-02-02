@@ -102,8 +102,8 @@ The keystroke talker node allows you to send keystrokes as messages. To run the 
 This node will publish keystrokes to a topic, which can be subscribed to by other nodes.
 This will help you understand how ROS2 nodes written in different languages can communicate with each other.
 
-- For more details on the implementation of the keystroke talker node in `c++`, please refer to the [Keystroke Talker README](Workspace\src\talker_listern_cpp\README.md).
-- For more details on the implementation of the keystroke talker node in `Python`, please refer to the [Keystroke Talker README](Workspace\src\talker_listern_py\README.md).
+- For more details on the implementation of the keystroke talker node in `c++`, please refer to the [Keystroke Talker README](Workspace/src/talker_listern_cpp/README.md).
+- For more details on the implementation of the keystroke talker node in `Python`, please refer to the [Keystroke Talker README](Workspace/src/talker_listern_py/README.md).
 
 ## License
 
