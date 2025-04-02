@@ -9,36 +9,35 @@ doxyxml/
 doxygen/html/
 
 # Ignore temporary files generated during build process
-*.tmp  # Temporary files
-*.log  # Log files
-*.aux  # Auxiliary files
-*.out  # Output files
-*.toc  # Table of contents
-*.idx  # Index files
-*.ilg  # Index log files
-*.ind  # Index files
-*.lof  # List of figures
-*.lot  # List of tables
-*.gz   # Compressed files
+*.tmp
+*.log
+*.aux
+*.out
+*.toc
+*.idx
+*.ilg
+*.ind
+*.lof
+*.lot
 
 # Ignore backup files
-*.bak  # Backup files
-*~     # Backup files created by editors
+*.bak
+*~
 
 # Ignore Python cache files
-__pycache__/  # Python bytecode cache directory
-*.pyc  # Compiled Python files
-*.pyo  # Compiled Python files
+__pycache__/
+*.pyc
+*.pyo
 
 # Ignore virtual environment directories
-venv/   # Virtual environment
-.env/   # Virtual environment
-.venv/  # Virtual environment
+venv/
+.env/
+.venv/
 
 # Ignore generated documentation (if using `make html`)
 build/
 
 # Ignore editor-specific files
-.vscode/  # VS Code settings
-.idea/    # JetBrains IDE settings
-*.swp     # Swap files created by Vim and other editors
+.vscode/
+.idea/
+*.swp
