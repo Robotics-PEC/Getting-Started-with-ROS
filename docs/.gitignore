@@ -1,0 +1,44 @@
+# Ignore Sphinx build directory
+_build/
+
+# Ignore Sphinx cached environment
+_autosummary/
+
+# Ignore Doxygen output (if used with Breathe)
+doxyxml/
+doxygen/html/
+
+# Ignore temporary files generated during build process
+*.tmp  # Temporary files
+*.log  # Log files
+*.aux  # Auxiliary files
+*.out  # Output files
+*.toc  # Table of contents
+*.idx  # Index files
+*.ilg  # Index log files
+*.ind  # Index files
+*.lof  # List of figures
+*.lot  # List of tables
+*.gz   # Compressed files
+
+# Ignore backup files
+*.bak  # Backup files
+*~     # Backup files created by editors
+
+# Ignore Python cache files
+__pycache__/  # Python bytecode cache directory
+*.pyc  # Compiled Python files
+*.pyo  # Compiled Python files
+
+# Ignore virtual environment directories
+venv/   # Virtual environment
+.env/   # Virtual environment
+.venv/  # Virtual environment
+
+# Ignore generated documentation (if using `make html`)
+build/
+
+# Ignore editor-specific files
+.vscode/  # VS Code settings
+.idea/    # JetBrains IDE settings
+*.swp     # Swap files created by Vim and other editors
