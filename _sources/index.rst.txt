@@ -24,4 +24,6 @@ basic working robot.
    :caption: Contents:
    
    setup/index
+   overview
    tutorial
+   building

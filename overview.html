@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; ROS 101  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=364fe29c" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Setup" href="setup/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ROS 101
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup/index.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup/index.html#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup/index.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="setup/index.html#xserver-setup-windows">XServer Setup (Windows)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-a-framework">What is a Framework?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#core-concepts-in-ros2">Core Concepts in ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-these-necessary">Why Are These Necessary?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-ros2-communicates-dds">How ROS2 Communicates: DDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learn-more">Learn More</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#running-talker-and-listener">Running Talker and Listener</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#building-the-code">Building the code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#running-the-nodes">Running the nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#experiment-with-mixed-language-nodes">Experiment with Mixed Language Nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#running-the-keystroke-talker">Running the Keystroke Talker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#example-package-overview">Example Package Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#creating-your-own-node">Creating Your Own Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#creating-a-new-ros2-package">Creating a New ROS2 Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#understanding-build-types">Understanding Build Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#creating-a-c-package">Creating a C++ Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#creating-a-python-package">Creating a Python Package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building your robot</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ROS 101</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content style-external-links">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/Robotics-PEC/Getting-Started-with-ROS/blob/main/docs/overview.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<p>Now that you have ROS2 installed on your system, let’s first understand the basic concept of ROS2.</p>
+<p>ROS2 (Robot Operating System 2) is <strong>not an operating system</strong> like Windows or Linux. Instead, it is a <strong>framework</strong> — a set of software tools and libraries designed to help you build robot applications efficiently.</p>
+<section id="what-is-a-framework">
+<h2>What is a Framework?<a class="headerlink" href="#what-is-a-framework" title="Link to this heading"></a></h2>
+<p>A <strong>framework</strong> provides reusable code, tools, and predefined structures that make software development easier and more organized. In the case of ROS2, it offers the essential building blocks to develop robot software, including message passing, device drivers, simulation tools, and more.</p>
+</section>
+<section id="core-concepts-in-ros2">
+<h2>Core Concepts in ROS2<a class="headerlink" href="#core-concepts-in-ros2" title="Link to this heading"></a></h2>
+<p>At the heart of ROS2 are a few key concepts:</p>
+<ul class="simple">
+<li><p><strong>Nodes</strong>: These are independent programs that perform specific tasks. For example, one node might read sensor data, while another controls the wheels.</p></li>
+<li><p><strong>Topics</strong>: Nodes communicate with each other by publishing or subscribing to <em>topics</em>. A topic is like a named data stream — nodes can publish messages to a topic, and other nodes can subscribe to it to receive those messages.</p></li>
+<li><p><strong>Publishers and Subscribers</strong>:
+- A <strong>publisher</strong> is a node that sends data (like camera images or sensor readings) to a topic.
+- A <strong>subscriber</strong> is a node that listens to that topic and processes the incoming data.</p></li>
+</ul>
+</section>
+<section id="why-are-these-necessary">
+<h2>Why Are These Necessary?<a class="headerlink" href="#why-are-these-necessary" title="Link to this heading"></a></h2>
+<p>In robotics, various parts of the system (e.g., sensors, motors, controllers, algorithms) need to work together. ROS2 enables this communication through its publisher-subscriber model. This <strong>decouples</strong> different components, so they can operate independently while still sharing information. This modularity makes your robotic system more <strong>scalable</strong>, <strong>maintainable</strong>, and <strong>reusable</strong>.</p>
+</section>
+<section id="how-ros2-communicates-dds">
+<h2>How ROS2 Communicates: DDS<a class="headerlink" href="#how-ros2-communicates-dds" title="Link to this heading"></a></h2>
+<p>Under the hood, ROS2 uses a middleware called <strong>DDS (Data Distribution Service)</strong> to manage communication between nodes. DDS is a standardized protocol that allows real-time, scalable, and reliable data exchange.</p>
+<dl class="simple">
+<dt>Key advantages of DDS include:</dt><dd><ul class="simple">
+<li><p><strong>Discovery</strong>: Nodes can automatically find each other on the network.</p></li>
+<li><p><strong>Quality of Service (QoS)</strong>: You can define how messages are sent and received (e.g., best effort vs. reliable, history depth, etc.).</p></li>
+<li><p><strong>Decentralization</strong>: There’s no need for a central server, making systems more robust and scalable.</p></li>
+</ul>
+</dd>
+</dl>
+<p>This DDS-based model means ROS2 applications can be more easily distributed across multiple devices and systems.</p>
+</section>
+<section id="learn-more">
+<h2>Learn More<a class="headerlink" href="#learn-more" title="Link to this heading"></a></h2>
+<p>This is just a high-level overview to get you started. ROS2 is a powerful and flexible framework with many features to explore. To dive deeper, check out the official ROS2 documentation:
+<a class="reference external" href="https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes.html">ROS2 nodes explanation</a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>(Note: Replace “humble” in the link with your ROS2 distro if you’re using a different version, e.g., “iron” or “foxy”.)</strong></p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="setup/index.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Witty Wizard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -23,7 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Setup" href="setup/index.html" /> 
+    <link rel="next" title="Building your robot" href="building.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,16 +57,33 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#what-is-a-framework">What is a Framework?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#core-concepts-in-ros2">Core Concepts in ROS2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#why-are-these-necessary">Why Are These Necessary?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#how-ros2-communicates-dds">How ROS2 Communicates: DDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#learn-more">Learn More</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#running-talker-and-listner">Running Talker and Listner</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#running-talker-and-listener">Running Talker and Listener</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#building-the-code">Building the code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-nodes">Running the nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#experiment-with-mixed-language-nodes">Experiment with Mixed Language Nodes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-keystroke-talker">Running the Keystroke Talker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-package-overview">Example Package Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-your-own-node">Creating Your Own Node</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-ros2-package">Creating a New ROS2 Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#understanding-build-types">Understanding Build Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-c-package">Creating a C++ Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-python-package">Creating a Python Package</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="building.html">Building your robot</a></li>
 </ul>
 
         </div>
@@ -94,8 +112,15 @@
              
   <section id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading"></a></h1>
-<section id="running-talker-and-listner">
-<h2>Running Talker and Listner<a class="headerlink" href="#running-talker-and-listner" title="Link to this heading"></a></h2>
+<p>This tutorial walks you through running example publisher and subscriber nodes using ROS2. The included repository provides simple, ready-to-run examples written in both Python and C++. These examples are designed to help you:</p>
+<ul class="simple">
+<li><p>Understand how the ROS2 build system (<cite>colcon</cite>) works</p></li>
+<li><p>See how nodes communicate using topics</p></li>
+<li><p>Observe interoperability between Python and C++ nodes</p></li>
+</ul>
+<section id="running-talker-and-listener">
+<h2>Running Talker and Listener<a class="headerlink" href="#running-talker-and-listener" title="Link to this heading"></a></h2>
+<p>Each publisher and subscriber in this repository is a <strong>node</strong>, and each node resides within a <strong>package</strong>. This mirrors the modular, scalable architecture that ROS2 encourages for building robotic applications.</p>
 <section id="building-the-code">
 <h3>Building the code<a class="headerlink" href="#building-the-code" title="Link to this heading"></a></h3>
 <ol class="arabic">
@@ -173,8 +198,108 @@ ros2<span class="w"> </span>run<span class="w"> </span>talker_listener_cpp<span 
 </pre></div>
 </div>
 </div></blockquote>
-<p>This node will publish keystrokes to a topic, which can be subscribed to by other nodes.
-This will help you understand how ROS2 nodes written in different languages can communicate with each other.</p>
+<p>This node will publish keystrokes to a topic, which can be subscribed to by other nodes. This simple interface demonstrates real-time communication and is especially helpful for beginners to see how nodes behave interactively. It will also help you understand how ROS2 nodes written in different languages can communicate with each other over a common topic.</p>
+</section>
+<section id="example-package-overview">
+<h3>Example Package Overview<a class="headerlink" href="#example-package-overview" title="Link to this heading"></a></h3>
+<p>The repository comes with several <strong>example publisher and subscriber nodes</strong> that you can run immediately to get a feel for how the ROS2 build system works. Each publisher and subscriber is implemented as a <strong>node</strong>, and each node is organized inside a <strong>package</strong>. In ROS2, this package structure is essential for modular design and scalability.</p>
+<p>For example:
+- <cite>talker_listener_py</cite> is a Python package that contains Python-based nodes
+- <cite>talker_listener_cpp</cite> is a C++ package that contains C++-based nodes</p>
+<p>Each node communicates by publishing or subscribing to a topic, and these nodes can be run independently or in combination with others. This setup allows you to:</p>
+<ul class="simple">
+<li><p>Observe how ROS2 handles building multi-language packages</p></li>
+<li><p>See how the same topic can be used across nodes written in different languages</p></li>
+<li><p>Understand how modularity in ROS2 makes code organization and reuse easier</p></li>
+</ul>
+<p>By experimenting with these examples, you gain practical insight into ROS2’s architecture, build tools like <cite>colcon</cite>, and how distributed node communication works in real robotic systems.</p>
+<p>Try editing one of the talker nodes to publish a custom message and see how the listener reacts. This hands-on trial-and-error approach is a great way to understand the flexibility and power of ROS2.</p>
+</section>
+</section>
+<section id="creating-your-own-node">
+<h2>Creating Your Own Node<a class="headerlink" href="#creating-your-own-node" title="Link to this heading"></a></h2>
+<p>Once you’re comfortable with running existing nodes, you can start creating your own.</p>
+<section id="creating-a-new-ros2-package">
+<h3>Creating a New ROS2 Package<a class="headerlink" href="#creating-a-new-ros2-package" title="Link to this heading"></a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">pkg</span> <span class="pre">create</span></code> command to generate a new package:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_cmake<span class="w"> </span>my_cpp_package
+ros2<span class="w"> </span>pkg<span class="w"> </span>create<span class="w"> </span>--build-type<span class="w"> </span>ament_python<span class="w"> </span>my_python_package
+</pre></div>
+</div>
+</section>
+<section id="understanding-build-types">
+<h3>Understanding Build Types<a class="headerlink" href="#understanding-build-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code>: Used for C++ packages, leverages CMake for building</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ament_python</span></code>: Used for Python packages, leverages setuptools and Python packaging</p></li>
+</ul>
+</section>
+<section id="creating-a-c-package">
+<h3>Creating a C++ Package<a class="headerlink" href="#creating-a-c-package" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>When using <code class="docutils literal notranslate"><span class="pre">--build-type</span> <span class="pre">ament_cmake</span></code>, ROS2 will set up a CMake project with necessary files like:</dt><dd><ul class="simple">
+<li><p><cite>CMakeLists.txt</cite></p></li>
+<li><p><cite>package.xml</cite></p></li>
+</ul>
+</dd>
+</dl>
+<p>Place your C++ source files inside a <cite>src/</cite> folder, define your executables in <cite>CMakeLists.txt</cite>, and build using <cite>colcon build</cite>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are unfamiliar with C++, then please go and learn it first, this is not for the faint of heart.</p>
+</div>
+<p>Example:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// my_node.cpp</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;rclcpp/rclcpp.hpp&quot;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">init</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">rclcpp</span><span class="o">::</span><span class="n">Node</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;my_cpp_node&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">);</span>
+<span class="w">  </span><span class="n">rclcpp</span><span class="o">::</span><span class="n">shutdown</span><span class="p">();</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="creating-a-python-package">
+<h3>Creating a Python Package<a class="headerlink" href="#creating-a-python-package" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>When using <code class="docutils literal notranslate"><span class="pre">--build-type</span> <span class="pre">ament_python</span></code>, ROS2 will create a Python structure with:</dt><dd><ul class="simple">
+<li><p><cite>setup.py</cite></p></li>
+<li><p><cite>package.xml</cite></p></li>
+<li><p><cite>my_python_package/</cite> directory</p></li>
+</ul>
+</dd>
+</dl>
+<p>Place your node scripts inside the package directory, and register them as entry points in <cite>setup.py</cite>.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># my_node.py</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MyPythonNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;my_python_node&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello from Python node!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="n">MyPythonNode</span><span class="p">()</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+    <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>For more details and advanced topics, refer to this section of ROS2 documentation:</dt><dd><ul class="simple">
+<li><p><a class="reference external" href="https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html">How to make a publisher in C++</a></p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">How to make a publisher in Python</a></p></li>
+</ul>
+</dd>
+</dl>
 </section>
 </section>
 </section>
@@ -183,7 +308,8 @@ This will help you understand how ROS2 nodes written in different languages can 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="setup/index.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="building.html" class="btn btn-neutral float-right" title="Building your robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
