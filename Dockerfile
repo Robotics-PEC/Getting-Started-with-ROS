@@ -4,24 +4,27 @@ FROM osrf/ros:jazzy-desktop
 # Update the package list and upgrade installed packages
 RUN apt-get update && apt-get upgrade -y
 
-# Update package list again before installing sudo (ensures latest repo metadata)
+# Install sudo
 RUN apt-get update && apt-get install -y sudo
 
-# Create a new user 'jazzer' without a password and add to sudoers
+# Create a new user 'jazzer' and add to sudo group
 RUN useradd -m jazzer && usermod -aG sudo jazzer
 
-# Copy the entrypoint script to the home directory of the new user
+# Allow passwordless sudo for the jazzer user
+RUN echo "jazzer ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/jazzer && chmod 0440 /etc/sudoers.d/jazzer
+
+# Copy the entrypoint script
 COPY scripts/entrypoint.sh /entrypoint.sh
 
 # Make the entrypoint script executable
 RUN chmod +x /entrypoint.sh
 
-# Switch to the new user 'jazzer'
+# Switch to user
 USER jazzer
 
-# Set the working directory for the new user
+# Set the working directory
 WORKDIR /home/jazzer/workspace
 
-# Set the entry point to the script
-CMD ["/bin/bash"]
+# Set the entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/bin/bash"]

@@ -1,20 +1,37 @@
-# Minimal makefile for Sphinx documentation
-#
+# Minimal makefile for Sphinx documentation (Linux/macOS only)
 
-# You can set these variables from the command line, and also
-# from the environment for the first two.
 SPHINXOPTS    ?=
-SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = source
 BUILDDIR      = build
 
-# Put it first so that "make" without argument is like "make help".
+PYTHON_VENV   = .venv/bin/python
+SPHINXBUILD   = $(PYTHON_VENV) -m sphinx
+SPHINXAUTOBUILD = $(PYTHON_VENV) -m sphinx_autobuild
+
+SHELL := /bin/bash
+
+setup:
+	@echo "Setting up the documentation build environment..."
+	@if [ ! -d ".venv" ]; then \
+		echo "Creating virtual environment..."; \
+		python3 -m venv .venv; \
+	else \
+		echo "Virtual environment already exists. Skipping creation."; \
+	fi
+	@echo "Installing dependencies..."
+	@$(PYTHON_VENV) -m pip install -r requirements.txt
+	@echo "Documentation build environment setup complete."
+
+build:
+	@$(SPHINXBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+dev:
+	@$(SPHINXAUTOBUILD) "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-.PHONY: help Makefile
+.PHONY: help Makefile setup build dev
 
-# Catch-all target: route all unknown targets to Sphinx using the new
-# "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
